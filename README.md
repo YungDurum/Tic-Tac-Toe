@@ -11,7 +11,7 @@ Two modes can be played.
 
 1. Clone the repository:
     ```bash
-   git clone https://github.com/<yourusername>/TicTacToe.git
+   git clone https://github.com/YungDurum/Tic-Tac-Toe.git
 2. Install dependenties.
 3. Run 
     ```bash
