@@ -10,7 +10,9 @@ Two modes can be played.
 ## Installation and how to run
 
 1. Clone the repository:
-   ```bash
+```bash
    git clone https://github.com/<yourusername>/TicTacToe.git
 2. Install dependenties.
-3. Run python3 gamerunner.py
+3. Run 
+```bash
+    python3 gamerunner.py
