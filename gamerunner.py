@@ -127,7 +127,8 @@ while running:
 
                     text_in_screen_font_PRESS_Start_2p("THE GAME", int(start_size-(start_size-end_size)*(x/Iterations)), WHITE, WIDTH / 2, int((start_place-(start_place-end_place)*x/Iterations)))
                     sleep(0.1)
-    
+                    pygame.display.flip()
+
     # Menu screen choose one or two players.
     elif start and player == 0:
         Oneplayer_button = box_object("One Player", 10, BLACK, WHITE, 1.5*(WIDTH / 8), (HEIGHT / 2)-40, WIDTH / 4, 50)
@@ -176,7 +177,7 @@ while running:
         exit_button = text_in_screen_font_PRESS_Start_2p("Exit",10,WHITE,10* WIDTH/12,10*HEIGHT/12)
         text_in_screen_font_PRESS_Start_2p(str(game.score["X"]), 30, YELLOW, WIDTH/12, 125)
         text_in_screen_font_PRESS_Start_2p(str(game.score["O"]), 30, PURPLE, 11* WIDTH/12, 125)
-
+        
         # Exit button check
         if click and exit_button.collidepoint(mouse) and click_flag == False:
             screen.fill(BLACK)
@@ -219,7 +220,10 @@ while running:
                     game.next_round()    
                 
                 game.games_played += 1
-                screen.fill(BLACK)
+                screen.fill(BLACK)        
+                if player == 2:
+                    text_in_screen_font_PRESS_Start_2p(str(game.whoplays())+" TURN", 20, WHITE, WIDTH/2, 2.5*HEIGHT/12)
+        
         
 
         # one player mode
@@ -233,13 +237,14 @@ while running:
                 pygame.display.flip()
                 sleep(1)
 
-            elif click == 1 and click_flag == False:
-                click_flag = True
-                for row in range(len(positions_in_grid)):
-                    for column in range(len(positions_in_grid[row])):
-                        if positions_in_grid[row][column].collidepoint(mouse):
-                            move_flag = 1
-                            game.move((row,column))
+            else:
+                if click == 1 and click_flag == False:
+                    click_flag = True
+                    for row in range(len(positions_in_grid)):
+                        for column in range(len(positions_in_grid[row])):
+                            if positions_in_grid[row][column].collidepoint(mouse):
+                                move_flag = 1
+                                game.move((row,column))
         
                        
         # Two player mode
