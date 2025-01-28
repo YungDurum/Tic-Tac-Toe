@@ -9,7 +9,7 @@ For this game I used pygame, which was new to me.
 
 import pygame
 from tic_tac_toe_helper import TicTacToe, AIplayer
-from time import sleep, time
+from time import sleep
 
 # Initialize game and create instance of TicTacToe
 pygame.init()
