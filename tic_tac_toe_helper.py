@@ -50,7 +50,7 @@ class TicTacToe():
         pot_moves = set()
         for i, row in enumerate(board):
             for j, element in enumerate(row):
-                if element == None:
+                if element is None:
                     pot_moves.add((i, j))
 
         return pot_moves
@@ -133,7 +133,7 @@ class TicTacToe():
 
         for row in board:
             for element in row:
-                if element == None:
+                if element is None:
                     return False
   
         return "DRAW"

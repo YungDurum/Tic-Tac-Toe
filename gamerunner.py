@@ -104,7 +104,7 @@ while running:
     if click:
         mouse = pygame.mouse.get_pos()
     
-    if start == False:
+    if start is False:
         text_in_screen_font_PRESS_Start_2p("_X",70,YELLOW,4.25*WIDTH/12,160)
         text_in_screen_font_PRESS_Start_2p("O_",70,PURPLE,7.75*WIDTH/12,160)
         text_in_screen_font_PRESS_Start_2p("THE GAME",75,WHITE,WIDTH/2,HEIGHT/2)
@@ -134,8 +134,8 @@ while running:
         Oneplayer_button = box_object("One Player", 10, BLACK, WHITE, 1.5*(WIDTH / 8), (HEIGHT / 2)-40, WIDTH / 4, 50)
         Twoplayer_button = box_object("Two Player",10, BLACK, WHITE ,4.5*(WIDTH / 8), (HEIGHT / 2)-40, WIDTH / 4, 50)
 
-        if click == 1 and click_flag == False:
-                click_flag == True
+        if click == 1 and click_flag is False:
+                click_flag is True
                 if Oneplayer_button.collidepoint(mouse):
                     player = 1
                     sleep(0.2)
@@ -179,7 +179,7 @@ while running:
         text_in_screen_font_PRESS_Start_2p(str(game.score["O"]), 30, PURPLE, 11* WIDTH/12, 125)
         
         # Exit button check
-        if click and exit_button.collidepoint(mouse) and click_flag == False:
+        if click and exit_button.collidepoint(mouse) and click_flag is False:
             screen.fill(BLACK)
             player = 0
             progress_flag = 0
@@ -213,7 +213,7 @@ while running:
 
         # The board and screen will be cleaned, and the amound of game that are played will be updated.
         if progress_flag == 0:
-            if click == 1 and click_flag == False:
+            if click == 1 and click_flag is False:
                 progress_flag = 1
                 click_flag = True
                 if game.games_played != 0:
@@ -229,7 +229,7 @@ while running:
         # one player mode
         elif player == 1 and progress_flag == 1:
             # if AI player turn
-            if game.whoplays() == "O" and click_flag == False:
+            if game.whoplays() == "O" and click_flag is False:
                 move_flag = 1
                 best_action = AIplayer.choose_action(game.state, False)
                 game.move(best_action)
@@ -238,7 +238,7 @@ while running:
                 sleep(1)
 
             else:
-                if click == 1 and click_flag == False:
+                if click == 1 and click_flag is False:
                     click_flag = True
                     for row in range(len(positions_in_grid)):
                         for column in range(len(positions_in_grid[row])):
@@ -249,7 +249,7 @@ while running:
                        
         # Two player mode
         elif player == 2 and progress_flag == 1:
-                if click == 1 and click_flag == False:
+                if click == 1 and click_flag is False:
                     click_flag = True
                     for row in range(len(positions_in_grid)):
                         for column in range(len(positions_in_grid[row])):
